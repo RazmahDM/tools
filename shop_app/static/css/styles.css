@@ -1,0 +1,1369 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+  margin: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  text-decoration: none;
+  background-color: #ffffff;
+}
+
+ul, li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+button, input {
+  font-family: inherit;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block; /*делаем ссылки блочно-строчными, что поможет сделать область ссылки подстраиваемую под содержимое ссылки*/
+  color: #000;
+}
+
+h2 {
+  font-size: 40px;
+  color: #000;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+h3 {
+  font-size: 20px;
+  color: #000;
+  font-weight: 400;
+}
+
+.container {
+  margin: 0 auto;
+  width: 1160px;
+}
+
+/** header **/
+
+.header {
+   background-color: #FEBD17;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__logo img {
+    width: 80px;
+}
+
+.header__contacts {
+    display: flex;
+    flex-direction: row;
+    column-gap: 25px;
+}
+
+.header__contacts--item {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+}
+
+.header__contacts--item--city {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.header__contacts--item--number {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.header__menu--list {
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+}
+
+.header__button {
+    display: flex;
+    flex-direction: row;
+    column-gap: 5px;
+    align-items: center;
+    background-color: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+    padding: 10px 25px;
+    font-size: 16px;
+    font-weight: 500;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.header__button:hover {
+    border: 1px solid #000000;
+    transition: 0.2s;
+}
+
+.cart__num {
+    position: absolute;
+    background-color: #000000;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    top: -5px;
+    right: -5px;
+}
+
+.problem__list {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    margin: 0 auto;
+    flex-direction: column;
+    margin-top: 700px;
+    margin-bottom: 700px;
+    position: relative;
+}
+
+.problem__list>img {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+}
+
+.problem__list>h1 {
+    font-size: 64px;
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 20px;
+    color: #ddd;
+}
+
+.problem__list>p {
+    font-size: 40px;
+    font-weight: 300;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #fff;
+}
+
+
+
+
+/* window tools  */
+
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.33); /* Небольшое затемнение на фоне */
+    z-index: 1000; /* Поверх всех окон */
+    width: 100%;
+    height: 100%;
+    display: none; /* По умолчанию скрываем окно */
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    overflow-y: scroll;
+  }
+  
+  /* Стилизация контейнера окна */
+  .popup__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Распределяем элементы внутри равномерно */
+    width: 100%;
+    max-width: 800px;
+    min-height: 300px;
+    background-color: #fff;
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    position: relative;
+  }
+  
+  /* Элементы окна (заголовок, список товаров, вывод стоимости) */
+  .popup__item {
+    border-bottom: 1px solid #ddd;
+    padding: 20px;
+  }
+  
+  .popup__item:last-of-type {
+    border-bottom: none;
+  }
+  
+  .popup__title {
+    font-size: 20px;
+  }
+  
+  /* Стили для вывода товара */
+  .popup__product {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .popup__product-wrap {
+    display: flex;
+    align-items: center;
+  }
+  
+  .popup__product-image {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-right: 10px;
+  }
+  
+  .popup__product-title {
+    max-width: 300px;
+    font-weight: 500;
+  }
+  
+  .popup__product-price {
+    font-size: 18px;
+    margin-right: 15px;
+  }
+  
+  /* Стили для кнопки удаления товара */
+  .popup__product-delete {
+    font-size: 12px;
+    padding: 5px;
+    cursor: pointer;
+    color: #d62240;
+  }
+  
+  /* Стили для вывода стоимости товаров */
+  .popup__cost {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 5px;
+  }
+  
+  .popup__cost-title {
+    margin-right: 15px;
+    font-size: 20px;
+    color: #364364;
+    text-align: right;
+  }
+  
+  .popup__cost-value {
+    font-size: 20px;
+  }
+  
+  /* Стили для кнопки закрытия окна */
+  .popup__close {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    right: 0;
+    padding: 20px;
+    color: rgba(54, 67, 100, 0.7);
+    font-size: 20px;
+  }
+  
+  .popup__close:hover {
+    color: rgb(54, 67, 100);
+  }
+  
+  .popup--open {
+    display: flex;
+  }
+
+/*  end winwow tools */
+
+
+/** breadcrumb **/
+
+.breadcrumb {
+    padding-top: 35px;
+    margin-bottom: 80px;
+}
+
+.breadcrumb li {
+    display: inline;
+    font-weight: 300;
+}
+
+.breadcrumb li a {
+    color: #4F4F4F;
+}
+
+.breadcrumb li:last-child {
+    text-decoration: underline;
+    color: #FEBD17;
+}
+
+/** end breadcrumb **/
+
+
+/*----------------- category -----------------*/
+
+.category__carousel {
+    width: 100%;
+    height: 100%;
+    margin: 90px 0 45px 0;
+}
+  
+.category__carousel .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 300;
+    background: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+    border-radius: 10px;
+    height: 110px;
+}
+  
+.category__carousel .swiper-slide img {
+    display: block;
+    width: 50%;
+    object-fit: cover;
+    margin: 0 auto;
+}
+  
+  /*----------------- end category -----------------*/
+
+
+/*----------------- img -----------------*/
+
+.img__carousel {
+    width: 100%;
+    height: 350px;
+    border: 0;
+    border-radius: 10px;
+    margin-bottom: 90px;
+}
+  
+.img__carousel .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+  
+.img__carousel .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+  
+.img__carousel .swiper-slide p {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px 0 0 20px;
+    font-size: 32px;
+    color: #FEBD17;
+    width: 390px;
+    text-align: start;
+}
+  
+/*----------------- end img -----------------*/
+
+
+/*----------------- new Tools -----------------*/
+
+.main__carousel--newtools {
+    margin: 0 0 100px 0;
+}
+
+.main__carousel--newtools>h2 {
+    margin-bottom: 35px;
+}
+
+.newtools__carousel {
+    width: 100%;
+    height: 100%;
+    margin-top: 15px;
+}
+  
+.newtools__carousel .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 5px;
+}
+  
+.newtools__carousel .swiper-slide img {
+    display: block;
+    width: 70%;
+    object-fit: cover;
+}
+  
+.name__newtool--card {
+    text-align: start;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+  
+.name__newtool--card>a:hover {
+    text-decoration: underline;
+    color: rgb(49, 49, 49);
+}
+  
+.characteristics {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+  
+.options, .value {
+    line-height: 25px;
+}
+  
+.options {
+    text-align: start;
+    font-weight: 300;
+}
+  
+.values {
+    text-align: end;
+    font-weight: 500;
+}
+  
+.price {
+    font-weight: 700;
+    margin: 20px 0 10px 0;
+}
+  
+.add__basket {
+    padding: 10px 25px;
+    outline: none;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    background-color: #FEBD17;
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+  
+.add__basket:hover {
+    background-color: #000000;
+    color: #ffffff;
+    transition: 0.2s;
+    cursor: pointer;
+}
+  
+  
+  /*----------------- end new tools -----------------*/
+
+
+
+/*----------------- promotion -----------------*/
+
+.main__carousel--promotiontools {
+    margin: 80px 0 50px 0;
+}
+
+.main__carousel--promotiontools>h2 {
+    margin-bottom: 35px;
+}
+
+.promotion__carousel {
+    width: 100%;
+    height: 100%;
+    margin-top: 15px;
+}
+  
+.promotion__carousel .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 5px;
+}
+  
+.promotion__carousel .swiper-slide img {
+    display: block;
+    width: 70%;
+    object-fit: cover;
+}
+  
+.promotion {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 20px;
+    font-weight: 700;
+    color: #FEBD17;
+}
+  
+.name__promotiontool--card {
+    text-align: start;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+  
+.name__promotiontool--card>a:hover {
+    text-decoration: underline;
+    color: rgb(49, 49, 49);
+}
+  
+.name__promotiontool--card>a:hover {
+    text-decoration: underline;
+    color: rgb(49, 49, 49);
+}
+  
+.promotion__carousel .price {
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+}
+  
+.old__price {
+    font-size: 14px;
+    text-decoration: line-through;
+    font-weight: 300;
+}
+
+/*----------------- end promotion -----------------*/
+
+
+
+/** company--card **/
+
+.main__company--card {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    column-gap: 123px;
+}
+
+.main__company--card--item figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 15px;
+}
+
+.main__company--card--item img {
+    width: 255px;
+}
+
+.main__company--card--item p {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.main__company--card--item figcaption {
+    font-size: 14px;
+    font-weight: 300;
+    text-align: center;
+    width: 255px;
+}
+
+/** reviews **/
+
+.main__reviews {
+    margin-top: 100px;
+}
+
+.main__reviews--block {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.main__reviews>h2 {
+    margin-bottom: 35px;
+}
+
+.main__reviews--item {
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+}
+
+.main__reviews--item--card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    padding: 20px 18px;
+    row-gap: 20px;
+    position: relative;
+}
+
+.card__reviews h3 {
+    margin-right: auto;
+}
+
+.card__reviews p {
+    font-size: 14px;
+    color: #4F4F4F;
+    margin-bottom: 30px;
+}
+
+.card__reviews span {
+    margin-left: auto;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 10px;
+}
+
+.main__reviews--item--card:hover {
+    background-color: rgba(0, 0, 0, 0.15);
+    border: 1px solid #ffffff;
+    transition: 0.3s;
+}
+
+/** company **/
+
+.main__company {
+    margin-top: 100px;
+}
+
+.main__company>h2 {
+    margin-bottom: 35px;
+}
+
+.main__company--info {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.main__company--info--item {
+    text-align: center;
+}
+
+.main__company--info--item h2 {
+    font-weight: 200;
+    color: #E7B400;
+}
+
+.main__company--description {
+    margin-top: 30px;
+}
+
+.main__company--description h3 {
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.card__grade {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.card__grade span {
+    color: #E7B400;
+    font-weight: 500;
+}
+
+.card__grade span:nth-child(2) {
+    color: #000000;
+}
+
+.card__grade span:nth-child(6) {
+    color: #000000;
+}
+
+.card__grade hr {
+    width: 140px;
+    height: 2px;
+    border: 0;
+    border-radius: 1px;
+    background-color: #FEBD17;
+    margin: 0 5px;
+}
+
+.card__reviews {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    align-items: center;
+}
+
+
+/* catalog */
+
+.main__catalog {
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.catalog__item {
+    border: 0;
+    border-radius: 10px;
+    width: 500px;
+    height: 520px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #ffffff;
+}
+
+.catalog__item>h2 {
+    font-size: 40px;
+    font-weight: 300;
+    text-transform: uppercase;
+    padding: 35px 0 0 50px;
+    color: #ffffff;
+}
+
+.catalog__item>p {
+    font-size: 20px;
+    font-weight: 200;
+    padding: 0 50px 35px 50px;
+}
+
+.main__catalog--rent {
+   
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.main__catalog--sale {
+    background-image: url(/img/content/sale.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* end catalog */
+
+
+/*  contacts  */
+
+.main__contacts {
+    margin-bottom: 200px;
+}
+
+.main__contacts>h2 {
+    margin-bottom: 60px;
+}
+
+.contacts__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    column-gap: 80px;
+    position: relative;
+}
+
+.contacts__container h2 {
+    font-size: 24px;
+    font-weight: 300;
+    margin-bottom: 30px;
+}
+
+.container__number--list, .container__address--list {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    row-gap: 10px;
+}
+
+.container__number--list h3, .container__address--list h3 {
+    font-size: 16px;
+    font-weight: 200;
+}
+
+.container__number--list p, .container__address--list p {
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+.container__social--icon {
+    display: flex;
+    flex-direction: row;
+    column-gap: 15px;
+}
+
+.container__social--icon a>img {
+    cursor: pointer;
+    display: block;
+    width: 40px;
+}
+
+main .container>img {
+    position: absolute;
+    bottom: 180px;
+    right: 200px;
+    z-index: -1;
+}
+
+/*   end contacts  */
+
+
+/*  info company */
+
+.company__services>h2 {
+    margin: 60px 0 80px 0;
+}
+
+.company__services>h3 {
+    font-size: 34px;
+    font-weight: 300;
+    color: #ffffff;
+    padding: 27px 0 27px 25px;
+    margin-bottom: 100px;
+    background: rgb(0,0,0);
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(98,98,98,1) 26%, rgba(255,255,255,1) 70%);
+    border: 0;
+    border-radius: 10px 0 0 10px;
+}
+
+.company__services--list {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 40px;
+    margin-bottom: 140px;
+    justify-content: space-between;
+    row-gap: 150px;
+}
+
+.services__item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    column-gap: 30px;
+    align-items: center;
+}
+
+
+
+.services__item--description {
+    display: flex;
+    flex-direction: column;
+    row-gap: 35px;
+    align-items: center;
+    width: 350px;
+}
+
+.services__item--description>h4 {
+    font-size: 20px;
+    font-weight: 400;
+    color: #000000;
+
+}
+
+.services__item--description>p {
+    font-size: 16px;
+    font-weight: 300;
+    color: #000000;
+}
+
+.services__item:last-child img {
+    height: 64px;
+}
+
+/** end company info **/
+
+
+/** company info **/
+
+.company__info {
+    padding: 0 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 60px;
+}
+
+.company__info-item {
+    display: flex;
+    flex-direction: column;
+    row-gap: 35px;
+    align-items: center;
+    width: 100%;
+}
+
+.company__info-item>h2 {
+    color: #E7B400;
+    text-transform: none;
+    font-size: 32px;
+    font-weight: 300;
+}
+
+.company__info-item>p {
+    width: 65%;
+    font-size: 16px;
+    font-weight: 300;
+    color: #000000;
+}
+
+/*   end info company */
+
+/* catalog */
+
+
+/*  rent  */
+
+.main__category>h2 {
+    margin-bottom: 70px;
+}
+
+.main__category--list {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 13px;
+}
+
+.category__list--item {
+    border: 1px solid #4F4F4F;
+    border-radius: 10px; 
+}
+
+.category__list--item--block {
+    width: 100%;
+    height: 170px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.category__list--item:nth-child(1) {
+    grid-column: 1 / 3;
+    
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.category__list--item:nth-child(2) {
+    grid-column: 3 / 5;
+    
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.category__list--item:nth-child(3) {
+    grid-column: 5 / 7;
+    
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.category__list--item:nth-child(4) {
+    grid-column: 1 / 3;
+    
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.category__list--item:nth-child(5) {
+    grid-column: 3 / 5;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.category__list--item:nth-child(6) {
+    grid-column: 5 / 7;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.category__list--item:nth-child(7) {
+    grid-column: 2 / 6;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.category__list--item--block>p {
+    font-size: 18px;
+    font-weight: 300;
+    padding: 0 0 28px 28px;
+    text-align: start;
+    color: #ffffff;
+}
+
+.category__list--item:hover .category__list--item--block>p {
+    font-size: 20px;
+    text-decoration: underline;
+}
+
+/*  end rent  */
+
+/* sale  */
+
+.main__category--sale>h2 {
+    margin-bottom: 70px;
+}
+
+.main__category--sale--list {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 13px;
+}
+
+.category--sale__list--item {
+    border: 1px solid #4F4F4F;
+    border-radius: 10px; 
+}
+
+.category--sale__list--item--block {
+    width: 100%;
+    height: 170px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.category--sale__list--item:nth-child(1) {
+    grid-column: 1 / 3;
+    background-image: url(/img/sale.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.category--sale__list--item:nth-child(2) {
+    grid-column: 3 / 5;
+    background-image: url(/img/sale.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.category--sale__list--item:nth-child(3) {
+    grid-column: 5 / 7;
+    background-image: url(/img/sale.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.category--sale__list--item--block>p {
+    font-size: 18px;
+    font-weight: 300;
+    padding: 0 0 28px 28px;
+    text-align: start;
+    color: #ffffff;
+}
+
+.category--sale__list--item:hover .category--sale__list--item--block>p {
+    font-size: 20px;
+    text-decoration: underline;
+}
+
+/*  end sale */
+
+/** garden tools rent **/
+
+.tools__garden>h2 {
+    margin-bottom: 80px;
+}
+
+.tools__garden--filter {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.tools__garden--filter>button {
+    width: 235px;
+    height: 40px;
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 200;
+    border: 0;
+    border-radius: 5px;
+}
+
+.tools__garden--filter>button:hover {
+    background-color: #FEBD17;
+    color: #000000;
+    font-weight: 400;
+    transition: 0.2s;
+}
+
+.tools__garden--list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 60px;
+    margin-top: 80px;
+}
+
+.tools__garden--item {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    justify-content: center;
+}
+
+.tools__garden--item>img {
+    display: block;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.name__garden--card {
+    text-align: start;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+  
+.name__garden--card>a:hover {
+    text-decoration: underline;
+    color: rgb(49, 49, 49);
+}
+  
+.characteristics {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+  
+.options, .value {
+    line-height: 25px;
+}
+  
+.options {
+    text-align: start;
+    font-weight: 300;
+}
+  
+.values {
+    text-align: end;
+    font-weight: 500;
+}
+
+.price {
+    margin: 20px 0 10px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.price>p {
+    font-weight: 700;
+}
+
+/** end garden tools rent **/
+
+/** garden tools sale **/
+
+.tools__garden>h2 {
+    margin-bottom: 80px;
+}
+
+.tools__garden--filter {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.tools__garden--filter>button {
+    width: 235px;
+    height: 40px;
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 200;
+    border: 0;
+    border-radius: 5px;
+}
+
+.tools__garden--filter>button:hover {
+    background-color: #FEBD17;
+    color: #000000;
+    font-weight: 400;
+    transition: 0.2s;
+}
+
+.tools__garden--list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 60px;
+    margin-top: 80px;
+}
+
+.tools__garden--item {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    justify-content: center;
+}
+
+.tools__garden--item>img {
+    display: block;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.name__garden--card {
+    text-align: start;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+  
+.name__garden--card>a:hover {
+    text-decoration: underline;
+    color: rgb(49, 49, 49);
+}
+  
+.characteristics {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+  
+.options, .value {
+    line-height: 25px;
+}
+  
+.options {
+    text-align: start;
+    font-weight: 300;
+}
+  
+.values {
+    text-align: end;
+    font-weight: 500;
+}
+
+.price {
+    margin: 20px 0 10px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.price>p {
+    font-weight: 700;
+}
+
+.add__basket {
+    padding: 10px 25px;
+    outline: none;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    background-color: #FEBD17;
+    font-size: 16px;
+}
+  
+.add__basket:hover {
+    background-color: #000000;
+    color: #ffffff;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+/** end garden tools sale **/
+
+
+/** footer **/
+
+.footer {
+    background-color: #FEBD17;
+    margin-top: 100px;
+    padding: 70px 0;
+}
+
+.footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer__logo img {
+    width: 18vh;
+}
+
+.footer__contacts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 20px;
+}
+
+.footer__contacts--number {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 10px;
+}
+
+.footer__contacts--number img {
+    width: 30px;
+}
+
+.footer__contacts--mail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 10px;
+}
+
+.footer__messenger--icon {
+    display: flex;
+    column-gap: 10px;
+}
+
+.footer__messenger--icon a>img {
+    width: 40px;
+}
+
+.footer__company--link {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    row-gap: 20px;
+}
+
+.footer__company--link li:first-child {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.footer__users--link {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    row-gap: 20px;
+}
+
+.footer__users--link li:first-child {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+
+.cart_btn {
+    background: #fff;
+    display: block;
+    color: #222;
+    padding: 12px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.cart_btn:hover {
+    background: #ddd;
+}

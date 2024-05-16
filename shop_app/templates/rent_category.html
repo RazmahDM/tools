@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <ul class="breadcrumb">
+        <li><a href="/">Главная</a></li>
+        <li>\</li>
+        <li><a href="/rent_category">Каталог</a></li>
+        <li>\</li>
+        <li>Аренда</li>
+    </ul>
+    <section class="main__category">
+        <h2>Категории арендного инструмента</h2>
+        <div class="main__category--list">
+            {% for c in cats %}
+            <a href="/catalog/{{c.slug}}" class="category__list--item" style="background-image: url({{c.img.url}})">
+                <div class="category__list--item--block">
+                    <p>{{c.name}}</p>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </section>
+</div>
+{% endblock content %}

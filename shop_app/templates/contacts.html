@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}Контакты{% endblock title %}
+{% block content %}
+{% load static %}
+<div class="container">
+    <ul class="breadcrumb">
+        <li><a href="/">Главная</a></li>
+        <li>\</li>
+        <li>Контакты</li>
+    </ul>
+    <section class="main__contacts">
+        <h2>Контакты</h2>
+        <div class="contacts__container">
+            <div class="contacts__container--number">
+                <h2>Номер телефона сервиса</h2>
+                <div class="container__number--list">
+                    <h3>Ростов-на-Дону</h3>
+                    <p>+7 (909) 414-26-32</p>
+                </div>
+            </div>
+            <div class="contacts__container--address">
+                <h2>Адреса сервисов</h2>
+                <div class="container__address--list">
+                    <h3>Ростов-на-Дону</h3>
+                    <p>ул. Малиновского, 54</p>
+                </div>
+            </div>
+            <div class="contacts__container--social">
+                <h2>Социальные сети</h2>
+                <div class="container__social--icon">
+                    <a href="https://t.me/Dom_instrymentaRND"><img src="{% static 'images/images/icon-tg.png' %}" alt="tg"></a>
+                    <a href="https://wa.me/79950916161"><img src="{% static 'images/images/icon-wa.png' %}" alt="wa"></a>
+                    <a href="https://vk.com/dom.instrumenta_rnd"><img src="{% static 'images/images/icon-vk.png' %}" alt="vk"></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <img src="{% static 'images/images/logic.png' %}" alt="logic">
+</div>
+{% endblock content %}

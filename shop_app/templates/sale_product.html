@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <ul class="breadcrumb">
+        <li><a href="/">Главная</a></li>
+        <li>\</li>
+        <li><a href="/catalog">Каталог</a></li>
+        <li>\</li>
+        <li>Продажа</li>
+    </ul>
+    <section class="main__category--sale">
+        <h2>Категории товара на продажу</h2>
+        <div class="main__category--sale--list">
+            <a href="/parts" class="category--sale__list--item" style="background-image: url({% static 'images/images/sale_1.png' %})">
+                <div class="category--sale__list--item--block">
+                    <p>Запчасти</p>
+                </div>
+            </a>
+            <a href="/accessories" class="category--sale__list--item" style="background-image: url({% static 'images/images/sale_2.png' %})">
+                <div class="category--sale__list--item--block">
+                    <p>Аксессуары</p>
+                </div>
+            </a>
+            <a href="/material" class="category--sale__list--item" style="background-image: url({% static 'images/images/sale_3.png' %})">
+                <div class="category--sale__list--item--block">
+                    <p>Расходный материал</p>
+                </div>
+            </a>
+        </div>
+    </section>
+</div>
+{% endblock content %}

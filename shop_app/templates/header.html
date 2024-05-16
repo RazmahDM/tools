@@ -1,0 +1,35 @@
+{% load static %}
+<header class="header">
+    <div class="container">
+        <a href="/" class="header__logo">
+            <img src="{% static 'images/images/top-logo.png' %}" alt="logo">
+        </a>
+        <div class="header__contacts">
+            <div class="header__contacts--item">
+                <span class="header__contacts--item--city">Ростов-на-Дону</span>
+                <span class="header__contacts--item--number">+7 (911) 911-01-01</span>
+            </div>
+        </div>
+        <nav class="header__menu">
+            <ul class="header__menu--list">
+                <li class="header__menu--list--link">
+                    <a href="/rent_category">Каталог</a>
+                </li>
+                <!-- <li class="header__menu--list--link">
+                    <a href="/buying">Скупка</a>
+                </li> -->
+                <li class="header__menu--list--link">
+                    <a href="/about">О компании</a>
+                </li>
+                <li class="header__menu--list--link">
+                    <a href="/contacts">Контакты</a>
+                </li>
+                <li class="header__menu--list--link">
+                    <a href="/payment">Оплата и доставка</a>
+                </li>
+            </ul>
+        </nav>
+        <a class="cart_btn">Корзина</a>
+    </div>
+</header>
+<main>

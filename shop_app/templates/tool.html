@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>{{ tool.title }}</h1>
+
+<h2>{{ tool.description }}</h2>
+
+{% if tool.image %}
+
+<img class="img_tool_list" src={{ tool.image }}>
+
+{% endif %}
+
+{{ tool.description|linebreaks }}
+
+{% endblock content %}

@@ -1,0 +1,53 @@
+</main>
+{% load static %}
+<footer class="footer">
+    <div class="container">
+        <a href="/" class="footer__logo">
+            <img src="{% static 'images/images/top-logo.png' %}" alt="logo">
+        </a>
+        <div class="footer__contacts">
+            <div class="footer__contacts--number">
+                <img src="{% static 'images/images/icon-phone.svg' %}" alt="phone">
+                <span>Ростов-на-Дону: <a href="tel:+7 (911) 911-01-01">+7 (911) 911-01-01</a></span>
+                <span>Таганрог: <a href="tel:+7 (911) 911-02-02">+7 (911) 911-02-02</a></span>
+            </div>
+            <div class="footer__contacts--mail">
+                <img src="{% static 'images/images/mail_FILL0_wght400_GRAD0_opsz24.svg' %}" alt="mail">
+                <a href="mailto:toolshouse@gmail.com">toolshouse@gmail.com</a>
+            </div>
+            <div class="footer__messenger--icon">
+                <a href="https://vk.com/dom.instrumenta_rnd">                        
+                    <img src="{% static 'images/images/icon-vk.png' %}" alt="vk">
+                </a>
+                <a href="https://wa.me/79950916161">                        
+                    <img src="{% static 'images/images/icon-wa.png' %}" alt="wa">
+                </a>
+                <a href="https://t.me/Dom_instrymentaRND">                    
+                    <img src="{% static 'images/images/icon-tg.png' %}" alt="tg">
+                </a>
+            </div>
+        </div>
+        <div class="footer__company">
+            <ul class="footer__company--link">
+                <li>О компании</li>
+                <li><a href="/about">О нас</a></li>
+                <li><a href="{% static '/policy.pdf' %}">Политика конфиденциальности</a></li>
+                <li><a href="/contacts">Контакты</a></li>
+            </ul>
+        </div>
+        <div class="footer__users">
+            <ul class="footer__users--link">
+                <li>Для пользователя</li>
+                <li><a href="/rent_category">Каталог</a></li>
+                <!-- <li><a href="/buying">Скупка</a></li> -->
+                <li><a href="/basket">Корзина</a></li>
+                <!-- <li>&#9996;Дом инструмента</li> -->
+            </ul>
+        </div>
+    </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="{% static 'scripts/script.js' %}"></script>
+</body>
+{% include 'basket.html' %}
+</html>

@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% for category in categories %}
+{% if category_id == category_selected %}
+<li>{{ category.name }}</li>
+{% else %}
+<li><a href="{{ category.get_absolute_url }}">{{ category.name }}</a></li>
+{% endif %}
+{% endfor %}
+
+<div class="container">
+    <ul class="breadcrumb">
+        <li><a href="">Главная</a></li>
+        <li>\</li>
+        <li><a href="">Каталог</a></li>
+        <li>\</li>
+        <li><a href="">Аренда</a></li>
+        <li>\</li>
+        <li>{{category}}</li>
+    </ul>
+    <section class="tools__garden">
+        <h2>{{category}}</h2>
+        <!-- <div class="tools__garden--filter">
+            <button>Дешевле</button>
+            <button>Дороже</button>
+            <button>По весу</button>
+            <button>По мощности</button>
+        </div> -->
+        <div class="tools__garden--list">
+            {% for t in tools %}
+            <div class="tools__garden--item">
+                <img src="{{t.image.url}}" alt="">
+                <p class="name__garden--card">
+                    <a href="">{{t.title}}</a>
+                </p>
+                <!-- <div class="characteristics">
+                    <div class="options">
+                        <span>Макс. мощность (кВт):</span>
+                        <span>Мощность ДВС (кВт/л.с.):</span>
+                        <span>Вес (кг):</span>
+                    </div>
+                    <div class="values">
+                        <span>3.1</span>
+                        <span>4.4/6</span>
+                        <span>46.5</span>
+                    </div>
+                </div> -->
+                <div class="price">
+                    <p>{{t.price}} р/сут.</p>
+                </div>
+                <button class="add__basket">Добавить в корзину</button>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+</div>
+
+{% endblock content %}

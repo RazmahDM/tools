@@ -1,0 +1,250 @@
+{% extends 'base.html' %}
+{% block title %}Дом инструмента|Аренда|Прокат{% endblock title %}
+{% block content %}
+
+
+
+
+{% load static %}
+
+<div class="container">
+    <section class="swiper mySwiper category__carousel">
+        <div class="swiper-wrapper">
+            {% for c in cats %}
+            <div class="swiper-slide">
+                <a href="/catalog/{{c.slug}}">
+                    <img src="{% static '/images/images/benzopila_champion_237_16.png' %}" alt="">
+                    <span>{{c.name}}</span>
+                </a>
+            </div>
+            {% endfor %}
+            <!-- <div class="swiper-slide">
+                <a href="">
+                    <img src="{% static '/images/images/kultivator_benzinovyy_champion_vc_5712_2.png' %}" alt="">
+                    <span>Культиватор</span>
+                </a>
+            </div> -->
+            <!-- <div class="swiper-slide">
+                <a href="">
+                    <img src="{% static '/images/images/moika_champion-hp3250.png' %}" alt="">
+                    <span>Мойка</span>
+                </a>
+            </div>
+            <div class="swiper-slide">
+                <a href="">
+                    <img src="{% static '/images/images/motopompa_champion_gtp80.png' %}" alt="">
+                    <span>Мотопомпа</span>
+                </a>
+            </div>
+            <div class="swiper-slide">
+                <a href="">
+                    <img src="{% static '/images/images/pylesos-vozduhoduv_champion_gbv326s.png' %}" alt="">
+                    <span>Воздуходувка</span>
+                </a>
+            </div>
+            <div class="swiper-slide">
+                <a href="">
+                    <img src="{% static '/images/images/trimmer_benzin_champion-t252.png' %}" alt="">
+                    <span>Триммер</span>
+                </a>
+            </div>
+            <div class="swiper-slide">
+                <a href="">
+                    <img src="{% static 'images/images/motobur__champion__ag__352.png' %}" alt="">
+                    <span>Мотобур</span>
+                </a>
+            </div>
+            <div class="swiper-slide">
+                <a href="">
+                    <img src="{% static 'images/images/generator_benzin_champion_gg6500.png' %}" alt="">
+                    <span>Бензогениратор</span>
+                </a>
+            </div>
+            <div class="swiper-slide">
+                <a href="">
+                    <img src="{% static 'images/images/elektropila_champion_118-14.png' %}" alt="">
+                    <span>Электропила</span>
+                </a>
+            </div> -->
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </section>
+    <section class="swiper mySwiper img__carousel">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="{% static '/images/images/img_carousel-1.png' %}" alt=""><p>Наш инструмент удобен в использовании</p></div>
+            <div class="swiper-slide"><img src="{% static '/images/images/img_carousel-2.png' %}" alt=""></div>
+            <div class="swiper-slide"><img src="{% static '/images/images/img_carousel-3.png' %}" alt=""></div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+    </section>
+    <!-- <section class="main__carousel--newtools">
+        <h2>Новинки</h2>
+        <section class="swiper mySwiper newtools__carousel">
+            <div class="swiper-wrapper">
+                {% include 'card_product.html' %}
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </section>
+    </section> -->
+    <section class="main__company--card">
+        <div class="main__company--card--item">
+            <figure>
+                <img src="{% static '/images/images/company-info-item-1.png' %}" alt="company">
+                <p>Сеть сервисных центров</p>
+                <figcaption>Наши сервисные центры ремонтирют интсрумент с любой степенью поломки</figcaption>
+            </figure>
+        </div>
+        <div class="main__company--card--item">
+            <figure>
+                <img src="{% static '/images/images/company-info-item-2.png' %}" alt="company">
+                <p>Любимый производитель</p>
+                <figcaption>В нашем магазине вы найдете то, что Вам требуется</figcaption>
+            </figure>
+        </div>
+        <div class="main__company--card--item">
+            <figure>
+                <img src="{% static '/images/images/company-info-item-3.png' %}" alt="company">
+                <p>Гарантия на все</p>
+                <figcaption>Предоставляем открытый отчет и гарантию на работы и товар</figcaption>
+            </figure>
+        </div>
+    </section>
+    <!-- <section class="main__carousel--promotiontools">
+        <h2>Акции</h2>
+        <section class="swiper mySwiper promotion__carousel">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <p class="promotion">-10%</p>
+                    <img src="{% static '/images/images/qwe.png' %}" alt="">
+                    <p class="name__promotiontool--card"><a href="">Гениратор бензиновый Champion GG3301</a></p>
+                    <div class="characteristics">
+                        <div class="options">
+                            <span>Макс. мощность (кВт):</span>
+                            <span>Мощность ДВС (кВт/л.с.):</span>
+                            <span>Вес (кг):</span>
+                        </div>
+                        <div class="values">
+                            <span>3.1</span>
+                            <span>4.4/6</span>
+                            <span>46.5</span>
+                        </div>
+                    </div>
+                    <div class="price">
+                        <p class="new__price">-30 690</p>
+                        <p class="old__price">33 890</p> 
+                    </div>
+                    <button class="add__basket">Добавить в корзину</button>
+                </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </section>
+    </section> -->
+    <section class="main__reviews">
+        <h2>Отзывы</h2>
+        <div class="main__reviews--block">
+            <div class="main__reviews--item">                    
+                <div class="main__reviews--item--card">
+                    <div class="card__grade">
+                        <div class="card__grade--first">
+                            <span>0</span>
+                            <span>.</span>
+                            <span>0</span>
+                        </div>
+                        <hr>
+                        <div class="card__grade--second">
+                            <span>5</span>
+                            <span>/</span>
+                            <span>5</span>
+                        </div>
+                    </div>
+                    <div class="card__reviews">
+                        <h3>Качество на высшем уровне</h3>
+                        <p>Про технику Champion могу сказать только хорошо. Поначалу было немного боязно покупать, но посмотрел, на вид очень красивая техника и надежная. Все довольно хорошо работало, и я стал без боязни пользоваться техникой этого бренда - по доступной цене отличное качество.</p>
+                        <span>Владимир Х.</span>
+                    </div>
+                </div>
+                <div class="main__reviews--item--card">
+                    <div class="card__grade">
+                        <span>0</span>
+                        <span>.</span>
+                        <span>0</span>
+                        <hr>
+                        <span>5</span>
+                        <span>/</span>
+                        <span>5</span>
+                    </div>
+                    <div class="card__reviews">
+                        <h3>Стабильная работа</h3>
+                        <p>Про технику Champion могу сказать только хорошо. Поначалу было немного боязно покупать, но посмотрел, на вид очень красивая техника и надежная. Все довольно хорошо работало, и я стал без боязни пользоваться техникой этого бренда - по доступной цене отличное качество.</p>
+                        <span>Николай С.</span>
+                    </div>
+                </div>
+                <div class="main__reviews--item--card">
+                    <div class="card__grade">
+                        <span>0</span>
+                        <span>.</span>
+                        <span>0</span>
+                        <hr>
+                        <span>5</span>
+                        <span>/</span>
+                        <span>5</span>
+                    </div>
+                    <div class="card__reviews">
+                        <h3>Удобно и эффективно</h3>
+                        <p>Про технику Champion могу сказать только хорошо. Поначалу было немного боязно покупать, но посмотрел, на вид очень красивая техника и надежная. Все довольно хорошо работало, и я стал без боязни пользоваться техникой этого бренда - по доступной цене отличное качество.</p>
+                        <span>Сергей М.</span>
+                    </div>
+                </div>
+                <div class="main__reviews--item--card">
+                    <div class="card__grade">
+                        <span>0</span>
+                        <span>.</span>
+                        <span>0</span>
+                        <hr>
+                        <span>5</span>
+                        <span>/</span>
+                        <span>5</span>
+                    </div>
+                    <div class="card__reviews">
+                        <h3>Производительность</h3>
+                        <p>Про технику Champion могу сказать только хорошо. Поначалу было немного боязно покупать, но посмотрел, на вид очень красивая техника и надежная. Все довольно хорошо работало, и я стал без боязни пользоваться техникой этого бренда - по доступной цене отличное качество.</p>
+                        <span>Константин У.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="main__company">
+        <h2>О компании</h2>
+        <div class="main__company--info">
+            <div class="main__company--info--item">
+                <h2>Отзывчивость</h2>
+                <p>Наши сотрудники всегда помогут Вам</p>
+            </div>
+            <div class="main__company--info--item">
+                <h2>Более 500 единиц</h2>
+                <p>В нашем магазине имеется большой ассортимент товара</p>
+            </div>
+            <div class="main__company--info--item">
+                <h2>Быстрая сделка</h2>
+                <p>Мы способствуем ускорению проведения сделок</p>
+            </div>
+        </div>
+        <div class="main__company--description">
+            <h3>О “Дом инструмента”</h3>
+            <p>Оборудование Champion разработано с учетом потребностей российских потребителей и адаптировано к российским климатическим условиям. Продукция бренда отличается своей долговечностью и продуманностью полного цикла замены комплектующих. Постоянное наличие запчастей и расходников для любой техники позволяет продлить срок эксплуатации оборудования в течение многих лет. Благодаря постоянным инновациям, долговечности и оптимальному соотношению цены и качества, техника Чемпион уже многие годы остается одним из лидеров на рынке садовой техники.</p>
+        </div>
+        <div class="main__company--description">
+            <h3>Дом инструмента – ваш надежный помощник!</h3>
+            <p>Инструменты Чемпион (Champion) включают в себя всю линейку садово-бытовых устройств: газонокосилки, мотоблоки и культиваторы, бензопилы, триммеры, дизельные и бензиновые генераторы, двигатели для любой техники, снегоуборочная и садовая техника. В нашем интернет-магазине представлена только оригинальная продукция известного производителя техники для садовых и строительных работ Champion.</p>
+        </div>
+    </section>
+</div>
+
+{% endblock content %}
+
+

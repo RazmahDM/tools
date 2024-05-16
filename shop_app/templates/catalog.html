@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% for category in categories %}
+{% if category_id == category_selected %}
+<li>{{ category.name }}</li>
+{% else %}
+<li><a href="{{ category.get_absolute_url }}">{{ category.name }}</a></li>
+{% endif %}
+{% endfor %}
+
+<div class="container">
+    <ul class="breadcrumb">
+        <li><a href="/">Главная</a></li>
+        <li>\</li>
+        <li>Каталог</li>
+    </ul>
+    <section class="main__catalog">
+        <a href="/rent_category">
+            <div class="main__catalog--rent catalog__item" style="background-image: url({% static 'images/images/rent.png' %})">
+                <h2>Аренда</h2>
+                <p>В аренду сдается инструмент, который подойдет для небольшого ремонта и для профессионального строительства</p>
+            </div>
+        <!-- </a>
+        <a href="/sale_product">
+            <div class="main__catalog--sale catalog__item" style="background-image: url({% static 'images/images/sale.png' %})">
+                <h2>Продажа</h2>
+                <p>В продаже имеются расходный материал для вашего инструмента, а также универсальные аксессуары для любого вида инструмента</p>
+            </div>
+        </a> -->
+    </section>
+</div>
+
+{% endblock content %}
