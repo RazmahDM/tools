@@ -29,7 +29,8 @@
         </div> -->
         <div class="tools__garden--list">
             {% for t in tools %}
-            <div class="tools__garden--item">
+            <form class="tools__garden--item" action="/add_to_cart/" method="POST">
+                {% csrf_token %}
                 <img src="{{t.image.url}}" alt="">
                 <p class="name__garden--card">
                     <a href="">{{t.title}}</a>
@@ -46,11 +47,12 @@
                         <span>46.5</span>
                     </div>
                 </div> -->
+                <input type="hidden" name="id" value="{{t.pk}}">
                 <div class="price">
                     <p>{{t.price}} р/сут.</p>
                 </div>
                 <button class="add__basket">Добавить в корзину</button>
-            </div>
+            </form>
             {% endfor %}
         </div>
     </section>

@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% for category in categories %}
+{% if category_id == category_selected %}
+<li>{{ category.name }}</li>
+{% else %}
+<li><a href="{{ category.get_absolute_url }}">{{ category.name }}</a></li>
+{% endif %}
+{% endfor %}
+
+<div class="container">
+    <section class="cart">
+        <form class="cart_form" name="contact" action="https://api.web3forms.com/submit" method="POST">
+            <!-- Replace with your Access Key -->
+            <input type="hidden" name="access_key" value="4d562ae4-c869-4664-9e72-fbd5197ad9bf">
+            <div class="l">
+                <h2>Аренда</h2>
+                <hr>
+                <div class="products">
+                    {% if tools %}
+                    {% for t in tools %}
+                    
+                    <input type="hidden" name="{{ forloop.counter }}-name" value="{{t.tool.title}}">
+                    <input type="hidden" name="{{ forloop.counter }}-price" value="{{t.tool.price}}">
+                    <div class="product">
+                        <img src="{{t.tool.image.url}}">
+                        <p>{{t.tool.title}}</p>
+                        <!-- <div><input type="number" placeholder="Кол-во"><span style="margin-left:10px">шт</span></div> -->
+                        <p class="cena">{{t.tool.price}}</p>
+                        <a class="del" href="/delete/{{t.id}}">X</a>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="r">
+                <div class="yellow">
+                    <div class="info_item">
+                        <p>Итого</p>
+                        <p class="summ">33 000 ₽</p>
+                    </div>
+                    <!-- hCaptcha Spam Protection -->
+                    <div class="h-captcha" data-captcha="true"></div>
+                    <button>Оформить заказ</button>
+                    <p>Стоимость доставки будет расчитана после того, как с вами свяжется менеджер</p>
+                </div>
+            </div>
+        </form>
+    </section>
+</div>
+
+{% endblock content %}

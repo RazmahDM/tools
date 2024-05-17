@@ -42,7 +42,115 @@ h3 {
 
 .container {
   margin: 0 auto;
-  width: 1160px;
+  max-width: 1160px;
+}
+
+@media screen and (max-width: 1200px){
+    .container {
+        margin: 0 auto;
+        max-width: 720px;
+    }
+
+    .main__company--card {
+        gap: 40px;
+        flex-wrap: wrap !important;
+    } 
+    .main__reviews--item{
+        flex-wrap: wrap;
+        gap: 40px;
+    }
+    .main__company--info {
+        flex-wrap: wrap;
+        gap: 40px;
+    }
+
+    .footer .container {
+        flex-direction: column;
+        gap: 40px;
+        align-items: flex-start !important;
+        text-align: left !important;
+    }
+    .footer__contacts--number {
+        align-items: flex-start !important;
+    }
+    .footer__contacts--mail {
+        align-items: flex-start !important;
+
+    }
+    .footer__messenger--icon{
+        align-items: flex-start !important;
+
+    }
+    .footer__contacts {
+        align-items: flex-start !important;
+
+    }
+    .company__info {
+        flex-direction: column !important;
+        gap: 40px;
+    }
+    
+    .main__category--list {
+        grid-template-columns: repeat(4, 1fr) !important; 
+    }
+
+    .contacts__container {
+        flex-direction: column !important;
+    }
+    .tools__garden--list {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    .cart_form {
+        flex-direction: column;
+    }
+    .l, .r {
+        width: 100% !important;
+    }
+}
+
+
+@media screen and (max-width: 800px){
+    .product {
+        flex-direction: column;
+        gap: 40px;
+    }
+    .product input {
+        padding: 20px 20px;
+    }
+    .container {
+        margin: 0 5% !important;
+    }
+    .header .container {
+        flex-direction: column;
+        gap: 40px;
+        padding: 40px;
+    }
+    .category__carousel  {
+        display: none;
+    }
+    .img__carousel  {
+        margin-top: 40px;
+    }
+
+    .services__item {
+        flex-direction: column !important;
+        gap: 40px;
+    }
+    
+    .main__category--list {
+        display: flex !important;
+        flex-direction: column;
+        min-width: 100% !important;
+        grid-template-columns: repeat(1, 1fr) !important; 
+    }
+
+    .category__list--item {
+        width: 100%;
+    }
+    .tools__garden--list {
+        grid-template-columns: repeat(1, 1fr) !important;
+    }
+
 }
 
 /** header **/
@@ -1366,4 +1474,64 @@ main .container>img {
 }
 .cart_btn:hover {
     background: #ddd;
+}
+
+.info_item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cart {
+    margin-top: 100px;
+}
+
+.cart_form {
+    display: flex;
+    gap: 40px;
+}
+
+.del {
+    cursor: pointer;
+}
+
+.product {
+    padding: 20px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.product input {
+    width: 100px;
+}
+
+.product img{
+    width: 100px;
+}
+
+.yellow {
+    border-radius: 10px;
+    background: #E7B400;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.yellow button {
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.yellow button:hover {
+    background: #333;
+}
+
+.l {
+    width: 60%;
+}
+.r {
+    width: 40%;
 }

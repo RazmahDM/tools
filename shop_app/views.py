@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import UserForm
 from django.http import HttpResponse, HttpResponseNotFound
-from .models import Tool, Category#, Parts
+from .models import Tool, Category, CartTool
 
 
 
@@ -64,3 +64,41 @@ def payment(request):
 def buying(request):
     return render(request, 'buying.html')
 
+
+def buying(request):
+    return render(request, 'buying.html')
+
+def add_to_cart(request):
+
+    idi = request.POST.get('id')
+    
+    tool = get_object_or_404(Tool, pk=idi)
+    print("ID")
+    print(idi)
+
+    carttool = CartTool.objects.create(tool=tool, user=request.user, amount=1)
+
+    return redirect(to='/cart')
+
+def cart(request):
+    if request.user.is_anonymous:
+        return redirect(to='/')
+    else:
+        
+        tools = CartTool.objects.filter(user=request.user)
+
+        data = {
+            'tools': tools
+        }
+
+        return render(request, 'cart.html', data)
+
+
+def delete(request, pk):
+
+
+    carttool = get_object_or_404(CartTool, pk=int(pk))
+    carttool.delete()
+
+
+    return redirect(to='/cart')

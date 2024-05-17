@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth.models import User
 
 
 
@@ -57,6 +58,21 @@ class Tool(models.Model):
     def get_absolute_url(self):
         return reverse('tool', kwargs={'tool_slug': self.slug})
     
+
+
+class CartTool(models.Model):
+    tool = models.ForeignKey(Tool, on_delete=models.DO_NOTHING)
+    user = models.ForeignKey(User, on_delete=models.DO_NOTHING)
+    amount = models.IntegerField()
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse('category', kwargs={"category_slug": self.slug})
+    
+
+
 '''
 class Category(models.Model):
     name = models.CharField(max_length=250, db_index=True, verbose_name='Категория')
